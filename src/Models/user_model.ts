@@ -1,20 +1,32 @@
-import mongoose from 'mongoose';
-
- export interface IUser {
-    name: string;
-    _id: string;
+import mongoose from "mongoose";
+import post, { IPost } from "./post_model";
+import { ObjectId } from "mongoose";
+export interface IUser {
+    email: string;
+    password: string;
+    _id?: string;
+    tokens?: string[];
+    posts?:ObjectId[]
+    
 }
 
-const userSchema = new mongoose.Schema<IUser>({
-    name: {
+const authSchema = new mongoose.Schema<IUser>({
+    email: {
         type: String
         , required: true
     },
-    _id: {
+    password: {
         type: String
         , required: true
+    },
+    tokens:{
+        type: [String]
+        , required: false
     }
+    , posts: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Post'
+      }]
 });
 
-export default mongoose.model<IUser>('User', userSchema);
-
+export default mongoose.model<IUser>('Auth', authSchema);
