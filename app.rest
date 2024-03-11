@@ -1,6 +1,6 @@
 ###
 
-Post http://localhost:3000/user
+Post http://localhost:3000/member
 
 Content-Type: application/json
 {
@@ -27,12 +27,12 @@ Content-Type: application/json
 ###
 DELETE http://localhost:3000/user/122
 
+
 # Check post
 
 ###
 GET http://localhost:3000/post
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OWE4MzlkMGI4ZjRmZDcxY2IwOGUzNiIsImlhdCI6MTcwNDYyNjU5MiwiZXhwIjoxNzA0NjMwMTkyfQ.OWK4ZhIMCGMesvTtELK9IfPCgAKX76LpMGcobUfkD4E
-
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OWFjMzIwM2FhZDAzOGEzMTE3Mjc3MiIsImlhdCI6MTcwNDY0MTMxOSwiZXhwIjoxNzA0NjQ0OTE5fQ.pN9Qn9m7DfPDDuNO_mwx8zQBvSa3rwdy7HgXMS83RUQ
 
 
 ###
@@ -40,6 +40,7 @@ GET http://localhost:3000/post/1234589
 
 ###
 POST http://localhost:3000/post
+Authorization: JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTUxODQ2MjU1NjY1OWM3Y2QyY2Q4ZSIsImlhdCI6MTcwNTMxOTc5OSwiZXhwIjoxNzA1MzE5ODAyfQ.xTkhySq4j5mOkelSz1UU2_dDQUmkpX4hHyOdqKrRmFg
 
 Content-Type: application/json
 {
@@ -54,7 +55,8 @@ PUT http://localhost:3000/post/1
 
 ###
 DELETE http://localhost:3000/post/1
-###
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OWFjMzIwM2FhZDAzOGEzMTE3Mjc3MiIsImlhdCI6MTcwNDY0MTMxOSwiZXhwIjoxNzA0NjQ0OTE5fQ.pN9Qn9m7DfPDDuNO_mwx8zQBvSa3rwdy7HgXMS83RUQ
+
 
 ################## CHECK AUTH#####################
 
