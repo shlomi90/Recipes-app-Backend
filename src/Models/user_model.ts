@@ -4,10 +4,12 @@ import { ObjectId } from "mongoose";
 export interface IUser {
     email: string;
     password: string;
+    username?: string;
+    imgURL?: string;
     _id?: string;
     tokens?: string[];
     posts?:ObjectId[]
-    
+   
 }
 
 const authSchema = new mongoose.Schema<IUser>({
@@ -17,7 +19,15 @@ const authSchema = new mongoose.Schema<IUser>({
     },
     password: {
         type: String
-        , required: true
+        , required: false
+    },
+    username: {
+        type: String
+        , required: false
+    },
+    imgURL: {
+        type: String
+        , required: false
     },
     tokens:{
         type: [String]
@@ -26,7 +36,8 @@ const authSchema = new mongoose.Schema<IUser>({
     , posts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
-      }]
+      }],
+   
 });
 
 export default mongoose.model<IUser>('Auth', authSchema);

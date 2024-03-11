@@ -7,6 +7,7 @@ export interface IComment {
     author: string;
     post_id: string;
     createdAt?: Date;
+    author_id?: string;
 }
 
 const commentSchema = new mongoose.Schema<IComment>({
@@ -24,8 +25,13 @@ const commentSchema = new mongoose.Schema<IComment>({
     },
     createdAt: {
         type: Date
-        , default: Date.now
-    }
+        , default: Date.now,
+    },
+    author_id: {
+        type: String
+        , required: false
+    },
+    
 });
 
 export default mongoose.model<IComment>('Comment', commentSchema);
